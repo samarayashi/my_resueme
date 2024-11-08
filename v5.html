@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding-left: 20px;
+        }
+
+        .logo {
+            min-width: 60px;
+            height: 60px;
+            border: 2px solid #4169E1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4169E1;
+            font-size: 18px;
+        }
+
+        .contact-info {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        h1 {
+            color: #4169E1;
+            margin: 0 0 15px 0;
+            font-size: 28px;
+        }
+
+        .main-content {
+            position: relative;
+            padding-left: 150px;
+        }
+
+        .timeline {
+            position: absolute;
+            left: 120px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ddd;
+        }
+
+        .section {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4169E1;
+        }
+
+        .section-title {
+            color: #4169E1;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: absolute;
+            left: -155px;
+            width: 120px;
+            text-align: right;
+        }
+
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 30px;
+        }
+
+        .skill-group {
+            flex: 0 0 calc(50% - 20px);
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            margin-bottom: 2px; 
+        }
+
+        .skill-blocks {
+            display: flex;
+            gap: 4px;
+        }
+
+        .skill-block {
+            width: 20px;
+            height: 8px;
+            background: #eee;
+        }
+
+        .skill-block.filled {
+            background: #4169E1;
+        }
+
+        .language-section {
+            text-align: left;
+        }
+
+        .native-language {
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .foreign-languages {
+            display: flex;
+            justify-content: left;
+            gap: 40px;
+        }
+
+        .language-item {
+            text-align: center;
+        }
+
+        .language-blocks {
+            display: flex;
+            gap: 4px;
+            margin-top: 5px;
+        }
+
+        .work-entry {
+            margin-bottom: 25px;
+        }
+
+        .work-title {
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .company {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .summary-section {
+            margin-bottom: 15px;
+        }
+
+        .summary-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+    <style>
+        @media print {
+          /* 確保背景顏色不會在列印時被隱藏 */
+          * {
+            -webkit-print-color-adjust: exact; /* Chrome, Safari */
+            print-color-adjust: exact; /* Firefox */
+          }
+      
+          /* 顯示所有元素的邊框 */
+          .bg-blue-700, .bg-blue-700/80 {
+            background-color: #1d4ed8 !important; /* 這裡填入你色塊的顏色 */
+          }
+      
+          /* 隱藏不需要列印的部分（例如：按鈕、導航欄等） */
+          .no-print {
+            display: none;
+          }
+      
+          /* 若需要，也可以調整字型和排版，使列印的內容更美觀 */
+          body {
+            font-family: "Arial", sans-serif;
+          }
+      
+          /* 確保頁面內容不會溢出 */
+          .container {
+            width: 100%;
+            max-width: 100%;
+            page-break-before: avoid;
+            page-break-after: avoid;
+          }
+        }
+    </style>
+      
+</head>
+<body>
+    <div class="header">
+        <div class="logo">A|C</div>
+        <div>
+            <h1>Alfred Chen</h1>
+            <div class="contact-info">
+                📍 Banqiao Dist, New Taipei 220 &nbsp;&nbsp; 📞 (+886)915053189<br>
+                📧 andychen208@gmail.com<br>
+                🔗 github.com/samarayashi<br>
+                🔗 linkedin.com/in/you-cheng-chen-521638204
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="timeline"></div>
+
+        <div class="section">
+            <div class="section-title">SUMMARY</div>
+            <div class="summary-section">
+                <div class="summary-title">Professional</div>
+                <p>I'm a passionate backend developer with extensive experience in backend development and data processing. Proficient in Python, Node.js, and cloud platforms like AWS, I specialize in creating scalable backend systems and optimizing data workflows. Known for my problem-solving skills and collaborative approach, I strive to bring innovation and efficiency to every project.</p>
+            </div>
+            <div class="summary-section">
+                <div class="summary-title">Personality</div>
+                <p>I'm a solo backpacker with an adventurous spirit, which translates to my approach to work—embracing challenges with a fresh perspective. Outside of work, I enjoy yoga, martial arts, and writing, which help me maintain balance and enhance creativity.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">SKILLS</div>
+            <div class="skill-container">
+                <div class="skill-group">
+                    <div class="skill-name">Languages：</div>
+                    <div class="skill-desc">Python, JavaScript, PL/SQL</div>
+                    <div class="skill-blocks">
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block"></div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-name">Backend Frameworks：</div>
+                    <div class="skill-desc">Express.js (Sequelize), FastAPI (SQLalchemy)</div>
+                    <div class="skill-blocks">
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block"></div>
+                        <div class="skill-block"></div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-name">Cloud Services：</div>
+                    <div class="skill-desc">AWS (CodePipeline, CloudWatch, Lambda, SQS, SES)</div>
+                    <div class="skill-blocks">
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block"></div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-name">Develop Tools：</div>
+                    <div class="skill-desc">Docker, Jira, Scrum, Git</div>
+                    <div class="skill-blocks">
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block"></div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-name">Databases：</div>
+                    <div class="skill-desc">MySQL, Oracle, Redis</div>
+                    <div class="skill-blocks">
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block"></div>
+                        <div class="skill-block"></div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-name">ETL TOOL：</div>
+                    <div class="skill-desc">Informatica</div>
+                    <div class="skill-blocks">
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block filled"></div>
+                        <div class="skill-block"></div>
+                        <div class="skill-block"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work History 保持不變 -->
+        <!-- Work History 部分保持不變 -->
+        <div class="section">
+            <div class="section-title">WORK HISTORY</div>
+            <!-- ... Work History 內容 ... -->
+            <div class="work-entry">
+                <div class="work-title">
+                    <span>BACK END DEVELOPER</span>
+                    <span class="date">07/2022 to 01/2024</span>
+                </div>
+                <div class="company">104 Corporation | New Taipei, Taiwan</div>
+                <ul>
+                    <li>Platform Development: Designed and implemented key features, such as video uploads, quizzes, assignments, and surveys, enabling seamless integration with third-party ERP and payment gateways while synchronizing with HRM systems.</li>
+                    <li>Scalability and Performance: Leveraged Node.js and AWS (Lambda, SQS, SES) to optimize backend solutions for high-traffic environments, contributing to a twofold increase in platform membership and order volume.</li>
+                    <li>Documentation and Project Management: Maintained comprehensive API documentation with OpenAPI and facilitated agile development practices through Jira and Scrum methodology.</li>
+                    <li>Front-End Integration: Collaborated with front-end teams to ensure cohesive application functionality and user experience.</li>
+                </ul>
+            </div>
+
+            <div class="work-entry">
+                <div class="work-title">
+                    <span>ETL ENGINEER</span>
+                    <span class="date">03/2021 to 06/2022</span>
+                </div>
+                <div class="company">Chung Hwa System Integration Co. | Taipei City</div>
+                <ul>
+                    <li>Data Migration: Utilized Informatica to streamline million-scale data processing, reducing SQL execution time from hours to under 30 minutes with automated scheduling for consistency.</li>
+                    <li>Automation and Security: Developed Python scripts to automate SQL and XML generation, enhancing data accuracy, and implemented PL/SQL encryption for data security.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education 保持不變 -->
+        <div class="section">
+            <div class="section-title">EDUCATION</div>
+            <div class="work-entry">
+                <div class="work-title">
+                    <span>Bachelor of Arts | Chinese Literature</span>
+                    <span class="date">07/2018</span>
+                </div>
+                <div class="company">National Chengchi University, Taipei City, Taiwan</div>
+                <ul>
+                    <li>Recipient of NCCU Writer Awards: Awarded 2nd Prize in Poetry; Finalist in Prose.</li>
+                </ul>
+            </div>
+
+            <div class="work-entry">
+                <div class="work-title">
+                    <span>Program | AIOT Develop</span>
+                    <span class="date">12/2020</span>
+                </div>
+                <div class="company">Institute For Information Industry, Taipei City, Taiwan</div>
+                <ul>
+                    <li>AIOT Project: Developed an AI-powered POS ordering system integrating OpenCV/Yolov3 for facial recognition to identify individual customers.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">LANGUAGES</div>
+            <div class="language-section">
+                <div class="native-language">
+                    Chinese (Mandarin): Native language
+                </div>
+                <div class="foreign-languages">
+                    <div class="language-item">
+                        <div>English: B2 Upper intermediate</div>
+                        <div class="language-blocks">
+                            <div class="skill-block filled"></div>
+                            <div class="skill-block filled"></div>
+                            <div class="skill-block filled"></div>
+                            <div class="skill-block filled"></div>
+                            <div class="skill-block"></div>
+                            <div class="skill-block"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div>Japanese: B1 Intermediate</div>
+                        <div class="language-blocks">
+                            <div class="skill-block filled"></div>
+                            <div class="skill-block filled"></div>
+                            <div class="skill-block filled"></div>
+                            <div class="skill-block"></div>
+                            <div class="skill-block"></div>
+                            <div class="skill-block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
